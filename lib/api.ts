@@ -81,7 +81,7 @@ export async function fetchPicsumPhotos(limit: number = 20): Promise<GalleryImag
 
 /**
  * Fetch photos from both APIs and combine them
- * Demonstrates: Promise.all, array spreading, error handling
+ * Demonstrates: Promise.all, array spreading, forEach, for...of, error handling
  */
 export async function fetchAllPhotos(): Promise<GalleryImage[]> {
   try {
@@ -93,6 +93,13 @@ export async function fetchAllPhotos(): Promise<GalleryImage[]> {
     
     // Demonstrate: Array spreading to combine arrays
     const allPhotos = [...jsonPlaceholderPhotos, ...picsumPhotos];
+    
+    // Demonstrate: forEach loop to count photos by source
+    const sourceCounts: Record<string, number> = {};
+    allPhotos.forEach((photo) => {
+      sourceCounts[photo.source] = (sourceCounts[photo.source] || 0) + 1;
+    });
+    console.log('Photo counts by source:', sourceCounts);
     
     // Demonstrate: for...of loop to log each photo (for demo purposes)
     console.log('Fetched photos:');

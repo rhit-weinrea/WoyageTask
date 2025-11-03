@@ -90,7 +90,7 @@ export default function ImageGallery() {
 
         {/* Filter buttons */}
         <div className="flex justify-center gap-4 mb-6">
-          {/* Demonstrate: Array of objects with forEach to create buttons */}
+          {/* Demonstrate: Array.map() to create buttons from config array */}
           {[
             { value: 'all' as const, label: 'All Sources' },
             { value: 'jsonplaceholder' as const, label: 'JSONPlaceholder' },
@@ -191,7 +191,7 @@ export default function ImageGallery() {
           </div>
           <div className="bg-red-50 p-4 rounded">
             <h3 className="font-semibold text-red-900 mb-2">Array.forEach()</h3>
-            <p className="text-gray-700">Used for button creation from config array</p>
+            <p className="text-gray-700">Used for counting photos by source (check console)</p>
           </div>
           <div className="bg-indigo-50 p-4 rounded">
             <h3 className="font-semibold text-indigo-900 mb-2">Promise.all()</h3>
